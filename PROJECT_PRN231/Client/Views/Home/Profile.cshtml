@@ -1,0 +1,58 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model UserDto
+@{
+
+}
+<div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold">Edogaru</span><span class="text-black-50">edogaru@mail.com.my</span><span> </span></div>
+        </div>
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3 mt-4">
+                    <h4 class="text-right">User Profile</h4>
+                    @if (TempData["success"] != null)
+                    {
+                        <div class="alert alert-success">
+                            <strong>Success!</strong> @TempData["success"]
+                        </div>
+                    }
+                    @if (ViewData["ErrorUpdate"] != null)
+                    {
+                        <div class="alert alert-danger">
+                            <strong>Fail!</strong> @ViewData["ErrorUpdate"]
+                        </div>
+                    }
+                </div>
+                @if (ViewData["Error"] != null)
+                {
+                    <div class="alert alert-danger">
+                        <strong>Fail!</strong> @ViewData["Error"]
+                    </div>
+                }
+                else
+                {
+                    <form method="post">
+                        <input type="hidden" asp-for="Id" />
+                        <input type="hidden" asp-for="Password" />
+                        <div class="row mt-2">
+                            <div class="col-md-6"><label class="labels">Full Name</label><input type="text" class="form-control" placeholder="@Model.Name" asp-for="Name"><span asp-validation-for="Name" class="text-danger"></span></div>
+                            <div class="col-md-6"><label class="labels">Username</label><input type="text" class="form-control" placeholder="@Model.Username" asp-for="Username"><span asp-validation-for="Username" class="text-danger"></span></div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder="@Model.Phone" asp-for="Phone"><span asp-validation-for="Phone" class="text-danger"></span></div>
+                            <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control" placeholder="@Model.Email" asp-for="Email"><span asp-validation-for="Email" class="text-danger"></span></div>
+                            <div class="col-md-12"><label class="labels">Address</label><input type="text" class="form-control" placeholder="@Model.Adress" asp-for="Adress"><span asp-validation-for="Adress" class="text-danger"></span></div>
+                        </div>
+                        <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit">Save Profile</button></div>
+                    </form>
+                }                
+            </div>
+        </div>
+    </div>
+</div>

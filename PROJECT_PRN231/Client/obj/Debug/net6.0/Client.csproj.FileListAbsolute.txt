@@ -440,7 +440,6 @@ D:\Contact_Personal_System_UsingAPI\PROJECT_PRN231\Client\obj\Debug\net6.0\stati
 D:\Contact_Personal_System_UsingAPI\PROJECT_PRN231\Client\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.Client.props
 D:\Contact_Personal_System_UsingAPI\PROJECT_PRN231\Client\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.Client.props
 D:\Contact_Personal_System_UsingAPI\PROJECT_PRN231\Client\obj\Debug\net6.0\staticwebassets.pack.json
-D:\Contact_Personal_System_UsingAPI\PROJECT_PRN231\Client\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 D:\Contact_Personal_System_UsingAPI\PROJECT_PRN231\Client\obj\Debug\net6.0\scopedcss\bundle\Client.styles.css
 D:\Contact_Personal_System_UsingAPI\PROJECT_PRN231\Client\obj\Debug\net6.0\scopedcss\projectbundle\Client.bundle.scp.css
 D:\Contact_Personal_System_UsingAPI\PROJECT_PRN231\Client\obj\Debug\net6.0\Client.csproj.Up2Date
@@ -449,3 +448,4 @@ D:\Contact_Personal_System_UsingAPI\PROJECT_PRN231\Client\obj\Debug\net6.0\refin
 D:\Contact_Personal_System_UsingAPI\PROJECT_PRN231\Client\obj\Debug\net6.0\Client.pdb
 D:\Contact_Personal_System_UsingAPI\PROJECT_PRN231\Client\obj\Debug\net6.0\Client.genruntimeconfig.cache
 D:\Contact_Personal_System_UsingAPI\PROJECT_PRN231\Client\obj\Debug\net6.0\ref\Client.dll
+D:\Contact_Personal_System_UsingAPI\PROJECT_PRN231\Client\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css

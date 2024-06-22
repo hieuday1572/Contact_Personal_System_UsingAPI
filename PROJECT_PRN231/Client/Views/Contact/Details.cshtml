@@ -1,0 +1,65 @@
+﻿@model ContactDto
+@{
+}
+<div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold">Edogaru</span><span class="text-black-50">edogaru@mail.com.my</span><span> </span></div>
+        </div>
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3 mt-4">
+                    <h4 class="text-right">User Profile</h4>
+                    @if (TempData["success"] != null)
+                    {
+                        <div class="alert alert-success">
+                            <strong>Success!</strong> @TempData["success"]
+                        </div>
+                    }
+                    @if (ViewData["ErrorUpdate"] != null)
+                    {
+                        <div class="alert alert-danger">
+                            <strong>Fail!</strong> @ViewData["ErrorUpdate"]
+                        </div>
+                    }
+                </div>
+                @if (ViewData["Error"] != null)
+                {
+                    <div class="alert alert-danger">
+                        <strong>Fail!</strong> @ViewData["Error"]
+                    </div>
+                }
+                else
+                {
+                    <form method="post">
+                        <input type="hidden" asp-for="Id" />
+                        <input type="hidden" asp-for="UserId" />
+                        <input type="hidden" asp-for="IsInTrash" />
+                        <input type="hidden" asp-for="VisitedCount" />
+                        <div class="row mt-2">
+                            <div class="col-md-6"><label class="labels">Full Name</label><input type="text" class="form-control" placeholder="@Model.FullName" asp-for="FullName"><span asp-validation-for="FullName" class="text-danger"></span></div>
+                            <div class="col-md-6"><label class="labels">Email</label><input type="text" class="form-control" placeholder="@Model.Email" asp-for="Email"><span asp-validation-for="Email" class="text-danger"></span></div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6"><label class="labels">Company</label><input type="text" class="form-control" placeholder="@Model.Company" asp-for="Company"><span asp-validation-for="Company" class="text-danger"></span></div>
+                            <div class="col-md-6"><label class="labels">JobTitle</label><input type="text" class="form-control" placeholder="@Model.JobTitle" asp-for="JobTitle"><span asp-validation-for="JobTitle" class="text-danger"></span></div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6"><label class="labels">Phone</label><input type="text" class="form-control" placeholder="@Model.Phone" asp-for="Phone"><span asp-validation-for="Phone" class="text-danger"></span></div>
+                            <div class="col-md-6"><label class="labels">DateOfBirth</label><input class="form-control" placeholder="@Model.DateOfBirth" asp-for="DateOfBirth"><span asp-validation-for="DateOfBirth" class="text-danger"></span></div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-12"><label class="labels">Address</label><input type="text" class="form-control" placeholder="@Model.Address" asp-for="Address"><span asp-validation-for="Address" class="text-danger"></span></div>
+                            <div class="col-md-12"><label class="labels">Created Date</label><input type="text" class="form-control" placeholder="@Model.CreatedDate" asp-for="CreatedDate"><span asp-validation-for="CreatedDate" class="text-danger"></span></div>
+                            <div class="col-md-12"><label class="labels">Facebook Link</label><input type="text" class="form-control" placeholder="@Model.FacebookLink" asp-for="FacebookLink"><span asp-validation-for="FacebookLink" class="text-danger"></span></div>
+                            <div class="col-md-12"><label class="labels">Insta Link</label><input type="text" class="form-control" placeholder="@Model.InstaLink" asp-for="InstaLink"><span asp-validation-for="InstaLink" class="text-danger"></span></div>
+                            <div class="col-md-12"><label class="labels">Banking</label><input type="text" class="form-control" placeholder="@Model.Banking" asp-for="Banking"><span asp-validation-for="Banking" class="text-danger"></span></div>
+                            <div class="col-md-12"><label class="labels">Note</label><textarea type="text" class="form-control" placeholder="@Model.Note" asp-for="Note"></textarea><span asp-validation-for="Note" class="text-danger"></span></div>
+                        </div>
+                        <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit">Save Contact</button></div>
+                    </form>
+                }
+            </div>
+        </div>
+    </div>
+</div>

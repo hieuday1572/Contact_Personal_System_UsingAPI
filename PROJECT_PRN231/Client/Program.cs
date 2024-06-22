@@ -11,7 +11,7 @@ namespace Client
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddSession();
-            builder.Services.AddRazorPages();
+            //builder.Services.AddRazorPages();
             builder.Services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             var app = builder.Build();
 
@@ -25,15 +25,19 @@ namespace Client
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.MapRazorPages();
+            //app.MapRazorPages();
             app.UseRouting();
 
             app.UseAuthorization();
             app.UseSession();
-            app.MapControllerRoute(
-                name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
-
+           
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                  name: "default",
+                  pattern: "{controller=Home}/{action=Index}/{id?}"
+                );
+            });
             app.Run();
         }
     }

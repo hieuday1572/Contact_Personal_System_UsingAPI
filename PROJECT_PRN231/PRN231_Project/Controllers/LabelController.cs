@@ -73,5 +73,12 @@ namespace PRN231_Project.Controllers
             _labelRepository.Delete(labelMap);
             return Ok();
         }
+
+        [HttpGet("{id}")]
+        public IActionResult GetContactByLabel(int id)
+        {
+            var contacts = _mapper.Map<List<ContactDto>>(_labelRepository.GetContactsByLabel(id));
+            return Ok(contacts);
+        }
     }
 }

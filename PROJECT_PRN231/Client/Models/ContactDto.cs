@@ -1,9 +1,11 @@
-﻿namespace Client.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Client.Models
 {
     public class ContactDto
     {
         public int Id { get; set; }
-        public string FullName { get; set; } = null!;
+        public string FullName { get; set; } = "";
         public string? Company { get; set; }
         public string? JobTitle { get; set; }
         public string? Email { get; set; }

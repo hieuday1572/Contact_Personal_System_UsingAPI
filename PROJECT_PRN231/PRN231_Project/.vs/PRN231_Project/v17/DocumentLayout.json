@@ -1,18 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\Contact_Personal_System_UsingAPI\\PROJECT_PRN231\\PRN231_Project\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{8DD8D227-B09A-4A63-9614-5F04CEC0FB7D}|..\\Client\\Client.csproj|d:\\contact_personal_system_usingapi\\project_prn231\\client\\controllers\\labelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C5D6FB16-485C-47EC-BAD2-2CDA1CC90E95}|PRN231_Project.csproj|d:\\contact_personal_system_usingapi\\project_prn231\\prn231_project\\controllers\\labelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C5D6FB16-485C-47EC-BAD2-2CDA1CC90E95}|PRN231_Project.csproj|solutionrelative:controllers\\labelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8DD8D227-B09A-4A63-9614-5F04CEC0FB7D}|..\\Client\\Client.csproj|d:\\contact_personal_system_usingapi\\project_prn231\\client\\views\\_createlabel.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -20,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -59,43 +48,8 @@
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "_CreateLabel.cshtml",
-              "DocumentMoniker": "D:\\Contact_Personal_System_UsingAPI\\PROJECT_PRN231\\Client\\Views\\_CreateLabel.cshtml",
-              "RelativeDocumentMoniker": "..\\Client\\Views\\_CreateLabel.cshtml",
-              "ToolTip": "D:\\Contact_Personal_System_UsingAPI\\PROJECT_PRN231\\Client\\Views\\_CreateLabel.cshtml",
-              "RelativeToolTip": "..\\Client\\Views\\_CreateLabel.cshtml",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-12T17:55:07.237Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "LabelController.cs",
-              "DocumentMoniker": "D:\\Contact_Personal_System_UsingAPI\\PROJECT_PRN231\\PRN231_Project\\Controllers\\LabelController.cs",
-              "RelativeDocumentMoniker": "Controllers\\LabelController.cs",
-              "ToolTip": "D:\\Contact_Personal_System_UsingAPI\\PROJECT_PRN231\\PRN231_Project\\Controllers\\LabelController.cs",
-              "RelativeToolTip": "Controllers\\LabelController.cs",
-              "ViewState": "AQIAACYAAAAAAAAAAAAgwDoAAAAnAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-12T17:43:33.439Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "LabelController.cs",
-              "DocumentMoniker": "D:\\Contact_Personal_System_UsingAPI\\PROJECT_PRN231\\Client\\Controllers\\LabelController.cs",
-              "RelativeDocumentMoniker": "..\\Client\\Controllers\\LabelController.cs",
-              "ToolTip": "D:\\Contact_Personal_System_UsingAPI\\PROJECT_PRN231\\Client\\Controllers\\LabelController.cs",
-              "RelativeToolTip": "..\\Client\\Controllers\\LabelController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-12T17:39:42.95Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             }
           ]
         }

@@ -49,7 +49,7 @@ namespace PRN231_Project.Repositories
         }
         public ICollection<Contact> GetContactsByLabel(int id)
         {
-            var contacts = _context.ContactLabels.Where(p => p.LabelId==id).Select(p => p.Contact).ToList();
+            var contacts = _context.ContactLabels.Where(p => p.LabelId==id && p.Contact.IsInTrash==false).Select(p => p.Contact).ToList();
             return contacts;
         }
         public bool Save()

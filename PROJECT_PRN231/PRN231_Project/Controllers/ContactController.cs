@@ -74,6 +74,7 @@ namespace PRN231_Project.Controllers
             var contactMap = _mapper.Map<Contact>(contactCreate);
             contactMap.CreatedDate = DateTime.Now;
             contactMap.IsInTrash = false;
+            contactMap.VisitedCount = 0;
             _contactRepository.CreateContact(contactMap);
             return Ok();
         }
@@ -82,7 +83,8 @@ namespace PRN231_Project.Controllers
         [HttpPut]
         public IActionResult UpdateContact([FromBody] ContactDto contactUpdate)
         {
-            var contactMap = _mapper.Map<Contact>(contactUpdate);
+            Contact contactMap = _contactRepository.GetContactById(contactUpdate.Id);
+            _mapper.Map(contactUpdate,contactMap);
             contactMap.ModifiedDate = DateTime.Now;           
             _contactRepository.UpdateContact(contactMap);
             return Ok();
@@ -95,6 +97,21 @@ namespace PRN231_Project.Controllers
             var contactMap = _mapper.Map<Contact>(contactDelete);
             _contactRepository.DeleteContact(contactMap);
             return Ok();
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetLabelsByContact(int id)
+        {
+            var Labels = _mapper.Map<List<LabelDto>>(_contactRepository.GetLabelsByContact(id));
+            if (Labels == null)
+            {
+                return NotFound();
+            }
+            else if(Labels.Count == 0)
+            {
+                return NotFound();
+            }
+            return Ok(Labels);
         }
     }
 }

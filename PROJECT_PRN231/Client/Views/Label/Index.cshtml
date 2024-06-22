@@ -1,0 +1,59 @@
+﻿@model List<ContactDto>
+@{
+}
+<!-- Page Heading -->
+@if (ViewData["Not Found"] != null)
+{
+    <h1>@ViewData["Not Found"]</h1>
+}
+else
+{
+    LabelDto label = (LabelDto)ViewData["label"];
+    <h1 class="h3 mb-2 text-gray-800">@label.LabelName (@Model.Count)</h1>
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Full Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>CreatedDate</th>
+                            <th>ModifiedDate</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Full Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>CreatedDate</th>
+                            <th>ModifiedDate</th>
+                            <th></th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.FullName</td>
+                                    <td>@item.Email</td>
+                                    <td>@item.Phone</td>
+                                    <td>@item.CreatedDate</td>
+                                    <td>@item.ModifiedDate</td>
+                                    <td>
+                                        <a class="btn btn-warning" asp-controller="Contact" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                                        <a class="btn btn-warning" href="#">Remove Label</a>
+                                    </td>
+                                </tr>
+                            }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}
+
