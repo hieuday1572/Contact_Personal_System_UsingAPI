@@ -16,13 +16,14 @@ namespace PRN231_Project.Repositories
             return Save();
         }
 
-        public bool Delete(Label label)
+        public bool Delete(int id)
         {
-            var con_la = _context.ContactLabels.Where(p => p.LabelId == label.Id).ToList();
+            var con_la = _context.ContactLabels.Where(p => p.LabelId == id).ToList();
             if (con_la.Count > 0)
             {
                 _context.ContactLabels.RemoveRange(con_la);
             }
+            var label = _context.Labels.FirstOrDefault(p => p.Id == id);
             _context.Labels.Remove(label);
             return Save();
         }

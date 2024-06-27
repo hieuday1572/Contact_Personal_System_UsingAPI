@@ -4,12 +4,40 @@
 <!-- Page Heading -->
 @if (ViewData["Not Found"] != null)
 {
-    <h1>@ViewData["Not Found"]</h1>
+    <div class="alert alert-danger">
+        <strong>Fail!</strong> @ViewData["Not Found"]
+    </div>
 }
 else
 {
     LabelDto label = (LabelDto)ViewData["label"];
-    <h1 class="h3 mb-2 text-gray-800">@label.LabelName (@Model.Count)</h1>
+    <div class="d-flex">
+        <h1 class="h3 mb-2 text-gray-800">@label.LabelName (@Model.Count)</h1>
+        <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 " asp-action="Update" method="post">
+            <div class="input-group">
+                <input hidden value="@label.Id" name="labelId" />
+                <input type="text" class="form-control border-0 small" placeholder="Edit label name here !"
+                       name="labelName">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="submit">
+                        <i class="bi bi-pencil-square"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+        @if (TempData["UpdateError"] != null)
+        {
+            <div class="alert alert-danger">
+                <strong>Fail!</strong> @ViewData["UpdateError"]
+            </div>
+        }
+        @if (TempData["success"] != null)
+        {
+            <div class="alert alert-success">
+                <strong>Success!</strong> @ViewData["success"]
+            </div>
+        }
+    </div>   
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-body">
@@ -56,4 +84,3 @@ else
         </div>
     </div>
 }
-

@@ -66,11 +66,10 @@ namespace PRN231_Project.Controllers
         }
 
         // DELETE api/<ValuesController>/5
-        [HttpDelete]
-        public IActionResult DeleteLabel([FromBody] LabelDto labelDelete)
+        [HttpDelete("{id}")]
+        public IActionResult DeleteLabel(int id)
         {
-            var labelMap = _mapper.Map<Label>(labelDelete);
-            _labelRepository.Delete(labelMap);
+            _labelRepository.Delete(id);
             return Ok();
         }
 

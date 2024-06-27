@@ -8,7 +8,7 @@ namespace PRN231_Project.Interfaces
         public Models.Label GetLabel(int id);
         public bool Create(Models.Label label);
         public bool Update(Models.Label label);
-        public bool Delete(Models.Label label);
+        public bool Delete(int id);
         public ICollection<Contact> GetContactsByLabel(int id);
 
     }
