@@ -21,5 +21,6 @@ namespace Client.Models
         public string? FacebookLink { get; set; }
         public string? InstaLink { get; set; }
         public string? Banking { get; set; }
+        public string? Image { get; set; }
     }
 }

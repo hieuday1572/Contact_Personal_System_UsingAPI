@@ -1,4 +1,5 @@
-﻿using Client.Models;
+﻿using Client.Helpper;
+using Client.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Diagnostics;
@@ -30,11 +31,14 @@ namespace Client.Controllers
             }
             string strData = await response.Content.ReadAsStringAsync();
             var list = JsonConvert.DeserializeObject<List<ContactDto>>(strData);
-            list=list.Where(p => p.IsInTrash==false).ToList();
+            list = list.Where(p => p.IsInTrash == false).ToList();
             response = await _client.GetAsync("https://localhost:7258/api/Label/GetLabels");
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 strData = await response.Content.ReadAsStringAsync();
+                var labels = JsonConvert.DeserializeObject<List<LabelDto>>(strData);
+                labels = labels.Where(p => p.UserId == id).ToList();
+                strData = JsonConvert.SerializeObject(labels);
                 HttpContext.Session.SetString("labels", strData);
             }
             return View(list);
@@ -124,22 +128,21 @@ namespace Client.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Profile(UserDto user)
+        public async Task<IActionResult> Profile(UserDto user, IFormFile? fThumb)
         {
-            HttpResponseMessage response = await _client.GetAsync("https://localhost:7258/api/User/GetUsers");
-            string strData = await response.Content.ReadAsStringAsync();
-            var listUser = JsonConvert.DeserializeObject<List<UserDto>>(strData);
-            if (listUser.Any(p => p.Username.Equals(user.Username) && p.Id != user.Id))
-            {
-                ModelState.AddModelError("user.Username", "Username already existed !");
-            }
             if (ModelState.IsValid)
             {
-                response = await _client.PutAsJsonAsync("https://localhost:7258/api/User/UpdateUser", user);
-                strData = await response.Content.ReadAsStringAsync();
+                if (fThumb != null)
+                {
+                    string extension = Path.GetExtension(fThumb.FileName);
+                    string image = Utilities.SEOUrl(fThumb.FileName) + extension;
+                    user.Image = await Utilities.UploadFile(fThumb, @"UserImages", image.ToLower());
+                }
+                HttpResponseMessage response = await _client.PutAsJsonAsync("https://localhost:7258/api/User/UpdateUser", user);
+                string strData = await response.Content.ReadAsStringAsync();
                 if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
                 {
-                    ViewData["ErrorUpdate"] = strData;  
+                    ViewData["ErrorUpdate"] = strData;
                     return View(user);
                 }
                 TempData["success"] = "Edited successfully !";

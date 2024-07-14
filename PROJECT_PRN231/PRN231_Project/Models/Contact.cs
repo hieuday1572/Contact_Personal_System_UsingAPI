@@ -11,7 +11,7 @@ namespace PRN231_Project.Models
         }
 
         public int Id { get; set; }
-        public string FullName { get; set; } = null!;
+        public string? FullName { get; set; }
         public string? Company { get; set; }
         public string? JobTitle { get; set; }
         public string? Email { get; set; }
@@ -27,6 +27,8 @@ namespace PRN231_Project.Models
         public string? FacebookLink { get; set; }
         public string? InstaLink { get; set; }
         public string? Banking { get; set; }
+        public string? Image { get; set; }
+
         public virtual User? User { get; set; }
         public virtual ICollection<ContactLabel> ContactLabels { get; set; }
     }

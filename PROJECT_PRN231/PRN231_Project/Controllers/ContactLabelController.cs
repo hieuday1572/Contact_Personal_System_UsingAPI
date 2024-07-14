@@ -27,11 +27,10 @@ namespace PRN231_Project.Controllers
             return Ok();
         }
 
-        [HttpDelete]
-        public IActionResult DeleteLabel([FromBody] Contact_LabelDto contact_labelDelete)
+        [HttpDelete("{contactId}/{labelId}")]
+        public IActionResult DeleteLabel(int contactId, int labelId)
         {
-            var contact_labelMap = _mapper.Map<ContactLabel>(contact_labelDelete);
-            _contact_LabelRepository.Delete(contact_labelMap);
+            _contact_LabelRepository.Delete( contactId,  labelId);
             return Ok();
         }
 

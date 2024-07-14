@@ -10,7 +10,14 @@
 <div class="container rounded bg-white mt-5 mb-5">
     <div class="row">
         <div class="col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold">Edogaru</span><span class="text-black-50">edogaru@mail.com.my</span><span> </span></div>
+            @if (String.IsNullOrEmpty(Model.Image))
+            {
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img id="imgPreview" class="rounded-circle mt-5" width="150px" height="150px" src="~/Image/6d4617dd0c9e91a.png"></div>
+            }
+            else
+            {
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img id="imgPreview" class="rounded-circle mt-5" width="150px" height="150px" src="~/Image/UserImages/@Model.Image"></div>
+            }
         </div>
         <div class="col-md-5 border-right">
             <div class="p-3 py-5">
@@ -37,12 +44,14 @@
                 }
                 else
                 {
-                    <form method="post">
+                    <form method="post" enctype="multipart/form-data">
                         <input type="hidden" asp-for="Id" />
                         <input type="hidden" asp-for="Password" />
+                        <input type="hidden" asp-for="Image" />
                         <div class="row mt-2">
+                            <div class="col-md-12"><label class="labels">Image</label><input type="file" class="form-control" id="chooseImg" accept="Image/*" name="fThumb"><span class="text-danger"></span></div>
                             <div class="col-md-6"><label class="labels">Full Name</label><input type="text" class="form-control" placeholder="@Model.Name" asp-for="Name"><span asp-validation-for="Name" class="text-danger"></span></div>
-                            <div class="col-md-6"><label class="labels">Username</label><input type="text" class="form-control" placeholder="@Model.Username" asp-for="Username"><span asp-validation-for="Username" class="text-danger"></span></div>
+                            <div class="col-md-6"><label class="labels">Username</label><input type="text" class="form-control" placeholder="@Model.Username" asp-for="Username" readonly><span asp-validation-for="Username" class="text-danger"></span></div>
                         </div>
                         <div class="row mt-3">
                             <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder="@Model.Phone" asp-for="Phone"><span asp-validation-for="Phone" class="text-danger"></span></div>

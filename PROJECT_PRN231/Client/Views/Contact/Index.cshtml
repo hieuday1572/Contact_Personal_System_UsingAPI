@@ -1,11 +1,16 @@
 ﻿@model ContactDto
 
-<h2 class="text-primary">Create Product</h2>
+<h2 class="text-primary">Create Contact</h2>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form method="post">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img id="imgPreview" class="rounded-circle mt-5" width="150px" height="150px" src="~/Image/6d4617dd0c9e91a.png"></div>
+        <form method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Image</label>
+                <input type="file" class="form-control" id="chooseImg" accept="Image/*" name="fThumb">
+            </div>
             <div class="form-group">
                 <label class="control-label">Full Name</label>
                 <input asp-for="FullName" class="form-control" />

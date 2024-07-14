@@ -25,8 +25,9 @@ namespace PRN231_Project.Repositories
             return Save();
         }
 
-        public bool DeleteContact(Contact contact)
+        public bool DeleteContact(int id)
         {
+            var contact = GetContactById(id);
             var con_la = _context.ContactLabels.Where(p => p.ContactId == contact.Id).ToList();
             if(con_la.Count > 0)
             {

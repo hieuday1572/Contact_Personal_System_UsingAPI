@@ -25,7 +25,8 @@ namespace PRN231_Project.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                optionsBuilder.UseSqlServer("Data Source=MSI\\SQL2019;Initial Catalog=Project_PRN231;User ID=sa;Password=123;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False");
             }
         }
 
@@ -35,31 +36,11 @@ namespace PRN231_Project.Models
             {
                 entity.ToTable("Contact");
 
-                entity.Property(e => e.Company)
-                    .HasMaxLength(100)
-                    .IsFixedLength();
-
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.DateOfBirth).HasColumnType("datetime");
 
-                entity.Property(e => e.Email)
-                    .HasMaxLength(300)
-                    .IsFixedLength();
-
-                entity.Property(e => e.FullName)
-                    .HasMaxLength(100)
-                    .IsFixedLength();
-
-                entity.Property(e => e.JobTitle)
-                    .HasMaxLength(100)
-                    .IsFixedLength();
-
                 entity.Property(e => e.ModifiedDate).HasColumnType("datetime");
-
-                entity.Property(e => e.Phone)
-                    .HasMaxLength(50)
-                    .IsFixedLength();
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Contacts)
@@ -88,10 +69,6 @@ namespace PRN231_Project.Models
             {
                 entity.ToTable("Label");
 
-                entity.Property(e => e.LabelName)
-                    .HasMaxLength(200)
-                    .IsFixedLength();
-
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Labels)
                     .HasForeignKey(d => d.UserId)
@@ -101,6 +78,8 @@ namespace PRN231_Project.Models
             modelBuilder.Entity<User>(entity =>
             {
                 entity.ToTable("User");
+
+                entity.Property(e => e.Phone).HasMaxLength(50);
             });
 
             OnModelCreatingPartial(modelBuilder);

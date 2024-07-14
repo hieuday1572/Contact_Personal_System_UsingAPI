@@ -91,11 +91,10 @@ namespace PRN231_Project.Controllers
         }
 
         // DELETE api/<ValuesController>/5
-        [HttpDelete]
-        public IActionResult DeleteContact([FromBody] ContactDto contactDelete)
+        [HttpDelete("{id}")]
+        public IActionResult DeleteContact( int id)
         {
-            var contactMap = _mapper.Map<Contact>(contactDelete);
-            _contactRepository.DeleteContact(contactMap);
+            _contactRepository.DeleteContact(id);
             return Ok();
         }
 

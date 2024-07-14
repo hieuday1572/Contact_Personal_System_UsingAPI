@@ -43,8 +43,9 @@ namespace Client.Controllers
             HttpContext.Session.SetString("labels", strData);
             List<LabelDto> list = JsonConvert.DeserializeObject<List<LabelDto>>(strData);
             int id = list.Max(p => p.Id);
-            var labelHtml = $"<li class=\"nav-item\" id=\"{id}\">\r\n<div class=\"d-flex\">\r\n<a class=\"nav-link\" style=\"width:30px\" onclick=\"confirmDelete({id})\"><i class=\"bi bi-x-octagon\"></i></a>\r\n<a class=\"nav-link\" href=\"/Label/Index/{id}\">\r\n<i class=\"bi bi-bookmark-fill\"></i>\r\n<span>{LabelName}</span>\r\n</a>\r\n</div>\r\n</li>";
-            return Json(new { success = true, labelHtml });
+            var labelHtml = $"<li class=\"nav-item {id}\" id=\"{id}\">\r\n<div class=\"d-flex\">\r\n<a class=\"nav-link\" style=\"width:30px\" onclick=\"confirmDelete({id})\"><i class=\"bi bi-x-octagon\"></i></a>\r\n<a class=\"nav-link\" href=\"/Label/Index/{id}\">\r\n<i class=\"bi bi-bookmark-fill\"></i>\r\n<span>{LabelName}</span>\r\n</a>\r\n</div>\r\n</li>";
+            var labelSelectHtml = $"<option class=\"{id}\" value=\"{id}\">{LabelName}</option>";
+            return Json(new { success = true, labelHtml , labelSelectHtml });
         }
 
         [HttpPost]

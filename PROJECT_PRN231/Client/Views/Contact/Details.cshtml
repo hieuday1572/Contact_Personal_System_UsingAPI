@@ -1,10 +1,41 @@
 ﻿@model ContactDto
 @{
 }
-<div class="container rounded bg-white mt-5 mb-5">
+<style>
+    .horizontal-list {
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        gap: 10px;
+    }
+
+        .horizontal-list li {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 10px 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+            .horizontal-list li i {
+                color: #007bff;
+            }
+
+                .horizontal-list li i:last-child {
+                    margin-left: auto;
+                    color: red;
+                }
+</style>
+<div class="container rounded bg-white mt-5 mb-5">  
     <div class="row">
         <div class="col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold">Edogaru</span><span class="text-black-50">edogaru@mail.com.my</span><span> </span></div>
+            @if (String.IsNullOrEmpty(Model.Image))
+            {
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img id="imgPreview" class="rounded-circle mt-5" width="150px" height="150px" src="~/Image/6d4617dd0c9e91a.png"></div>
+            }else{
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img id="imgPreview" class="rounded-circle mt-5" width="150px" height="150px" src="~/Image/ContactImages/@Model.Image"></div>
+            }                      
         </div>
         <div class="col-md-5 border-right">
             <div class="p-3 py-5">
@@ -31,12 +62,60 @@
                 }
                 else
                 {
-                    <form method="post">
+                    <div class="d-flex justify-content-between align-items-center mt-3 mb-3">
+                        <ul class="horizontal-list">
+                            @if (ViewData["labelsContact"] != null)
+                            {
+                                @foreach (var item in (List<LabelDto>)ViewData["labelsContact"])
+                                {
+                                    <li class="@item.Id">
+                                        <i class="bi bi-bookmark-fill"></i> @item.LabelName <a asp-action="RemoveLabel" asp-route-labelId="@item.Id" asp-route-contactId="@Model.Id"><i class="bi bi-x-octagon"></i></a>
+                                    </li>
+                                }
+                            }                                                    
+                        </ul>
+                    </div>
+                    @* <div class="dropdown no-arrow show">
+                        <a type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="labelDropdown" href="#" role="button">
+                            Select Label
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="labelDropdown">
+                            @if (ViewData["labels"] != null)
+                            {
+                                @foreach (var item in (List<LabelDto>)ViewData["labels"])
+                                {
+                                    <a class="dropdown-item @item.Id" asp-action="AddLabel" asp-route-labelId="@item.Id" asp-route-contactId="@Model.Id">@item.LabelName</a>
+                                }
+                            }                           
+                        </div>
+                    </div> *@
+                    <div style="width:400px">
+                        <form asp-action="AddLabel" class="d-flex">
+                            <input type="hidden" value="@Model.Id" name="contactId" />
+                            <select class="form-select" aria-label="Default select example" name="labelId" id="selectLabel">
+                                <option selected disabled>Select Label</option>
+                                @if (ViewData["labels"] != null)
+                                {
+                                    @foreach (var item in (List<LabelDto>)ViewData["labels"])
+                                    {                                       
+                                        <option class="@item.Id" value="@item.Id">@item.LabelName</option>
+                                    }
+                                }                               
+                            </select>
+                            <button type="submit" class="btn btn-primary ml-3">Add Label</button>
+                        </form>                        
+                    </div>
+                    @* <select name="labelAdd" asp-items="ViewBag.labels" class="mt-1 mb-1">
+                        <option disabled selected>Select Label</option>
+                    </select> *@
+                    <form method="post" enctype="multipart/form-data">
                         <input type="hidden" asp-for="Id" />
                         <input type="hidden" asp-for="UserId" />
                         <input type="hidden" asp-for="IsInTrash" />
-                        <input type="hidden" asp-for="VisitedCount" />
+                        <input type="hidden" asp-for="VisitedCount" />   
+                        <input type="hidden" asp-for="Image" />
                         <div class="row mt-2">
+                            <div class="col-md-12"><label class="labels">Image</label><input type="file" class="form-control" id="chooseImg" accept="Image/*" name="fThumb"><span class="text-danger"></span></div>
                             <div class="col-md-6"><label class="labels">Full Name</label><input type="text" class="form-control" placeholder="@Model.FullName" asp-for="FullName"><span asp-validation-for="FullName" class="text-danger"></span></div>
                             <div class="col-md-6"><label class="labels">Email</label><input type="text" class="form-control" placeholder="@Model.Email" asp-for="Email"><span asp-validation-for="Email" class="text-danger"></span></div>
                         </div>
@@ -50,7 +129,7 @@
                         </div>
                         <div class="row mt-3">
                             <div class="col-md-12"><label class="labels">Address</label><input type="text" class="form-control" placeholder="@Model.Address" asp-for="Address"><span asp-validation-for="Address" class="text-danger"></span></div>
-                            <div class="col-md-12"><label class="labels">Created Date</label><input type="text" class="form-control" placeholder="@Model.CreatedDate" asp-for="CreatedDate"><span asp-validation-for="CreatedDate" class="text-danger"></span></div>
+                            <div class="col-md-12"><label class="labels">Created Date</label><input type="text" class="form-control" placeholder="@Model.CreatedDate" asp-for="CreatedDate" readonly><span asp-validation-for="CreatedDate" class="text-danger"></span></div>
                             <div class="col-md-12"><label class="labels">Facebook Link</label><input type="text" class="form-control" placeholder="@Model.FacebookLink" asp-for="FacebookLink"><span asp-validation-for="FacebookLink" class="text-danger"></span></div>
                             <div class="col-md-12"><label class="labels">Insta Link</label><input type="text" class="form-control" placeholder="@Model.InstaLink" asp-for="InstaLink"><span asp-validation-for="InstaLink" class="text-danger"></span></div>
                             <div class="col-md-12"><label class="labels">Banking</label><input type="text" class="form-control" placeholder="@Model.Banking" asp-for="Banking"><span asp-validation-for="Banking" class="text-danger"></span></div>

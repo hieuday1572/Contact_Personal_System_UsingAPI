@@ -1,3 +1,4 @@
+using Client.Helpper;
 using Client.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -29,19 +30,18 @@ namespace Client.Pages
             return Page();
         }
 
-        public async Task<IActionResult> OnPost()
-        {
-            HttpResponseMessage response = await _client.GetAsync("https://localhost:7258/api/User/GetUsers");
-            string strData = await response.Content.ReadAsStringAsync();
-            var listUser = JsonConvert.DeserializeObject<List<UserDto>>(strData);
-            if(listUser.Any(p => p.Username.Equals(user.Username) && p.Id != user.Id))
-            {
-                ModelState.AddModelError("user.Username", "Username already existed !");
-            }
+        public async Task<IActionResult> OnPost(IFormFile fThumb)
+        {      
             if (ModelState.IsValid)
             {
-                response = await _client.PutAsJsonAsync("https://localhost:7258/api/User/UpdateUser",user);
-                strData = await response.Content.ReadAsStringAsync();
+                if (fThumb != null)
+                {
+                    string extension = Path.GetExtension(fThumb.FileName);
+                    string image = Utilities.SEOUrl(fThumb.FileName) + extension;
+                    user.Image = await Utilities.UploadFile(fThumb, @"UserImages", image.ToLower());
+                }
+                HttpResponseMessage response = await _client.PutAsJsonAsync("https://localhost:7258/api/User/UpdateUser",user);
+                string strData = await response.Content.ReadAsStringAsync();
                 if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
                 {
                     ViewData["ErrorUpdate"] = strData;

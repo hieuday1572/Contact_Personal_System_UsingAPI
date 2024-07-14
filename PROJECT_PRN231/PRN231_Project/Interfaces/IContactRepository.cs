@@ -11,7 +11,7 @@ namespace PRN231_Project.Interfaces
         bool ContactExists(int id);
         bool CreateContact(Contact contact);
         bool UpdateContact(Contact contact);
-        bool DeleteContact(Contact contact);
+        bool DeleteContact(int id);
         bool Save();
     }
 }

@@ -13,6 +13,7 @@ namespace PRN231_Project.Models
         public int Id { get; set; }
         public string? LabelName { get; set; }
         public int? UserId { get; set; }
+
         public virtual User? User { get; set; }
         public virtual ICollection<ContactLabel> ContactLabels { get; set; }
     }

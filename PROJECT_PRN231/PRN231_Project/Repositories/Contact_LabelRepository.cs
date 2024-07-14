@@ -17,8 +17,9 @@ namespace PRN231_Project.Repositories
             return Save();
         }
 
-        public bool Delete(ContactLabel contactLabel)
+        public bool Delete(int contactId, int labelId)
         {
+            var contactLabel = _context.ContactLabels.FirstOrDefault(p => p.ContactId == contactId&&p.LabelId==labelId);
             _context.ContactLabels.Remove(contactLabel);
             return Save();
         }
