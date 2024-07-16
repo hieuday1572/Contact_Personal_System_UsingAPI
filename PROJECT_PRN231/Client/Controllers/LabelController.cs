@@ -1,6 +1,7 @@
 ﻿using Client.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace Client.Controllers
 {
@@ -12,7 +13,7 @@ namespace Client.Controllers
             _httpClient = new HttpClient();
         }
 
-        public async Task<IActionResult> Index(int id)
+        public async Task<IActionResult> Index(int id, string search)
         {
             HttpResponseMessage response = await _httpClient.GetAsync($"https://localhost:7258/api/Label/GetLabelById/{id}");
             if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
@@ -26,6 +27,11 @@ namespace Client.Controllers
             response = await _httpClient.GetAsync($"https://localhost:7258/api/Label/GetContactByLabel/{id}");
             strData = await response.Content.ReadAsStringAsync();
             List<ContactDto> listContact = JsonConvert.DeserializeObject<List<ContactDto>>(strData);
+            if (!String.IsNullOrEmpty(search))
+            {
+                listContact = listContact.Where(p => p.FullName.ToLower().Contains(search.ToLower())).ToList();
+                ViewData["search"] = search;
+            }
             return View(listContact);
         }
         [HttpPost]

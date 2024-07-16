@@ -73,9 +73,9 @@ else
                                     <td>@item.CreatedDate</td>
                                     <td>@item.ModifiedDate</td>
                                     <td>
-                                        <a class="btn btn-warning" asp-controller="Contact" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                                        <a class="btn btn-warning" asp-controller="Contact" asp-action="Details" asp-route-id="@item.Id" asp-route-visit="true">Details</a> |
                                     <a class="btn btn-warning" asp-controller="Contact" asp-action="RemoveLabel" asp-route-labelId="@label.Id" asp-route-contactId="@item.Id" asp-route-labelPage="true">Remove Label</a> |
-                                    <a class="btn btn-warning" asp-controller="Contact" asp-action="PutToTrash" asp-route-id="@item.Id">Put To Trash</a>
+                                    <a class="btn btn-warning" asp-controller="Contact" asp-action="PutToTrash" asp-route-id="@item.Id" asp-route-labelPage="true">Put To Trash</a>
                                     </td>
                                 </tr>
                             }

@@ -11,7 +11,7 @@ namespace Client.Controllers
         {
             _httpClient = new HttpClient();
         }
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string search)
         {
             if (HttpContext.Session.GetInt32("userId") == null)
             {
@@ -26,7 +26,12 @@ namespace Client.Controllers
             }
             string strData = await response.Content.ReadAsStringAsync();
             var list = JsonConvert.DeserializeObject<List<ContactDto>>(strData);
-            list = list.Where(p => p.IsInTrash == true).ToList();           
+            list = list.Where(p => p.IsInTrash == true).ToList();
+            if (!String.IsNullOrEmpty(search))
+            {
+                list = list.Where(p => p.FullName.ToLower().Contains(search.ToLower())).ToList();
+                ViewData["search"] = search;
+            }
             return View(list);
         }
 

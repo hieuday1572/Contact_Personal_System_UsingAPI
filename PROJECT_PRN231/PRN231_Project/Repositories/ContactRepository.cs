@@ -44,7 +44,7 @@ namespace PRN231_Project.Repositories
 
         public ICollection<Contact> GetContactsByUserId(int id)
         {
-            return _context.Contacts.Where(p => p.UserId == id).ToList();
+            return _context.Contacts.Where(p => p.UserId == id).OrderBy(p => p.FullName).ToList();
         }
 
         public ICollection<Label> GetLabelsByContact(int id)
@@ -62,6 +62,11 @@ namespace PRN231_Project.Repositories
         {
             _context.Contacts.Update(contact);
             return Save();
+        }
+
+        public ICollection<Contact> GetPopularContactsByUserId(int id)
+        {
+            return _context.Contacts.Where(p => p.UserId == id && p.VisitedCount>1).OrderByDescending(p => p.VisitedCount).ThenBy(p => p.FullName).Take(5).ToList();
         }
     }
 }

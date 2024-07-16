@@ -1,6 +1,10 @@
 ﻿@model List<ContactDto>
 @{
-    var count = Model.Count;
+    int count = 0;
+    if (Model != null)
+    {
+       count = Model.Count;
+    }
 }
 <!-- Page Heading -->
 <h1 class="h3 mb-2 text-gray-800">Contacts (@count)</h1>
@@ -44,7 +48,8 @@
                                 <td>@item.Phone</td>
                                 <td>@item.CreatedDate</td>
                                 <td>@item.ModifiedDate</td>
-                                <td><a class="btn btn-warning" asp-controller="Contact" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                                <td>
+                                    <a class="btn btn-warning" asp-controller="Contact" asp-action="Details" asp-route-id="@item.Id" asp-route-visit="true">Details</a> |
                                     <a class="btn btn-warning" asp-controller="Contact" asp-action="PutToTrash" asp-route-id="@item.Id">Put To Trash</a>
                                 </td>
                             </tr>

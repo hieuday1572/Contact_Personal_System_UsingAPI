@@ -13,14 +13,14 @@ namespace Client.Controllers
         {
             _httpClient = new HttpClient();
         }
-        public IActionResult Index()
+        public IActionResult CreateContact()
         {
             ContactDto contact = new ContactDto();
             return View(contact);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Index(ContactDto contact, IFormFile? fThumb)
+        public async Task<IActionResult> CreateContact(ContactDto contact, IFormFile? fThumb)
         {
             if (ModelState.IsValid)
             {
@@ -38,7 +38,7 @@ namespace Client.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Details(int id)
+        public async Task<IActionResult> Details(int id,bool visit)
         {
             HttpResponseMessage response = await _httpClient.GetAsync($"https://localhost:7258/api/Contact/GetContactById/{id}");
             if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
@@ -49,6 +49,11 @@ namespace Client.Controllers
             {
                 string strData = await response.Content.ReadAsStringAsync();
                 var detail = JsonConvert.DeserializeObject<ContactDto>(strData);
+                if (visit == true)
+                {
+                    detail.VisitedCount += 1;
+                    await _httpClient.PutAsJsonAsync($"https://localhost:7258/api/Contact/UpdateContact", detail);
+                }
                 response = await _httpClient.GetAsync("https://localhost:7258/api/Label/GetLabels");
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
@@ -96,7 +101,7 @@ namespace Client.Controllers
             }
             else
             {
-                ViewData["ErrorUpdate"] = "Error Update";
+                TempData["ErrorUpdate"] = "Error Update";
             }           
             return View(contact);
         }
@@ -130,7 +135,7 @@ namespace Client.Controllers
                 return RedirectToAction(nameof(Details), new { id = contactId });
             }            
         }
-        public async Task<IActionResult> PutToTrash(int id)
+        public async Task<IActionResult> PutToTrash(int id, bool? labelPage)
         {
             HttpResponseMessage response = await _httpClient.GetAsync($"https://localhost:7258/api/Contact/GetContactById/{id}");
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
@@ -140,7 +145,30 @@ namespace Client.Controllers
                 contact.IsInTrash= true;
                 await _httpClient.PutAsJsonAsync("https://localhost:7258/api/Contact/UpdateContact", contact);
             }
+            if(labelPage == true)
+            {
+                return RedirectToAction("Index", "Label");
+            }
             return RedirectToAction("Index","Home");
+        }
+
+        public async Task<IActionResult> PopularContact()
+        {
+            if (HttpContext.Session.GetInt32("userId") == null)
+            {
+                return RedirectToAction("Login");
+            }
+            int id = (int)HttpContext.Session.GetInt32("userId");
+            HttpResponseMessage response = await _httpClient.GetAsync($"https://localhost:7258/api/Contact/GetPopularContacts/{id}");
+            if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+            {
+                ViewData["NotFound"] = "Not Found !";
+                return View();
+            }
+            string strData = await response.Content.ReadAsStringAsync();
+            var list = JsonConvert.DeserializeObject<List<ContactDto>>(strData);
+            list = list.Where(p => p.IsInTrash == false).ToList();
+            return View(list);
         }
     }
 }

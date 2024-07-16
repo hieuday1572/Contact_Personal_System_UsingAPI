@@ -5,6 +5,7 @@ namespace PRN231_Project.Interfaces
     public interface IContactRepository
     {
         ICollection<Contact> GetContactsByUserId(int id);
+        ICollection<Contact> GetPopularContactsByUserId(int id);
         Contact GetContactById(int id);
         ICollection<Contact> GetContactByName(int userId, string name);
         ICollection<Label> GetLabelsByContact(int id);

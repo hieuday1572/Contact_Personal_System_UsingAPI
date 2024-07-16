@@ -34,12 +34,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Contact_Personal_System_UsingAPI/PROJECT_PRN231/Client/Views/Contact/CreateContact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdFxDcmVhdGVDb250YWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Contact_Personal_System_UsingAPI/PROJECT_PRN231/Client/Views/Contact/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdFxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Contact_Personal_System_UsingAPI/PROJECT_PRN231/Client/Views/Contact/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdFxJbmRleC5jc2h0bWw=
+[D:/Contact_Personal_System_UsingAPI/PROJECT_PRN231/Client/Views/Contact/PopularContact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdFxQb3B1bGFyQ29udGFjdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Contact_Personal_System_UsingAPI/PROJECT_PRN231/Client/Views/Home/Index.cshtml]

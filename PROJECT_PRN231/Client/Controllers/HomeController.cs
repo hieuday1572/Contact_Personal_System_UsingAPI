@@ -16,7 +16,7 @@ namespace Client.Controllers
             _client = new HttpClient();
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string search)
         {
             if (HttpContext.Session.GetInt32("userId") == null)
             {
@@ -32,6 +32,11 @@ namespace Client.Controllers
             string strData = await response.Content.ReadAsStringAsync();
             var list = JsonConvert.DeserializeObject<List<ContactDto>>(strData);
             list = list.Where(p => p.IsInTrash == false).ToList();
+            if (!String.IsNullOrEmpty(search))
+            {
+                list = list.Where(p => p.FullName.ToLower().Contains(search.ToLower())).ToList();
+                ViewData["search"] = search;
+            }
             response = await _client.GetAsync("https://localhost:7258/api/Label/GetLabels");
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {

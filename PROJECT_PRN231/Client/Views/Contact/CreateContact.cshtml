@@ -1,0 +1,76 @@
+﻿@model ContactDto
+
+<h2 class="text-primary">Create Contact</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img id="imgPreview" class="rounded-circle mt-5" width="150px" height="150px" src="~/Image/6d4617dd0c9e91a.png"></div>
+        <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Image</label>
+                <input type="file" class="form-control" id="chooseImg" accept="Image/*" name="fThumb">
+            </div>
+            <div class="form-group">
+                <label class="control-label">Full Name</label>
+                <input asp-for="FullName" class="form-control" />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label class="control-label">Company</label>
+                <input asp-for="Company" class="form-control" />
+                <span asp-validation-for="Company" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">JobTitle</label>
+                <input asp-for="JobTitle" class="form-control" />
+                <span asp-validation-for="JobTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Email</label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Phone</label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">DateOfBirth</label>
+                <input asp-for="DateOfBirth" class="form-control" />
+                <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Address</label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">FacebookLink</label>
+                <input asp-for="FacebookLink" class="form-control" />
+                <span asp-validation-for="FacebookLink" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">InstaLink</label>
+                <input asp-for="InstaLink" class="form-control" />
+                <span asp-validation-for="InstaLink" class="text-danger"></span>
+                <div class="form-group">
+                <label class="control-label">Banking</label>
+                <input asp-for="Banking" class="form-control" />
+                <span asp-validation-for="Banking" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Note</label>
+                <input asp-for="Note" class="form-control" />
+                <span asp-validation-for="Note" class="text-danger"></span>
+            </div>
+
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

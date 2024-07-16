@@ -33,6 +33,19 @@ namespace PRN231_Project.Controllers
             }
             return Ok(contacts);
         }
+        [HttpGet("{userId}")]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<Contact>))]
+        public IActionResult GetPopularContacts(int userId)
+        {
+            var contacts = _mapper.Map<List<ContactDto>>(_contactRepository.GetPopularContactsByUserId(userId));
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            if (contacts.Count == 0)
+            {
+                return NotFound();
+            }
+            return Ok(contacts);
+        }
 
         // GET api/<ValuesController>/5
         [HttpGet("{id}")]
