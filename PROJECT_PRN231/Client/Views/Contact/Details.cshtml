@@ -1,5 +1,7 @@
 ﻿@model ContactDto
 @{
+    string[] listEmail = (string[])ViewData["listEmail"];
+    string[] listPhone = (string[])ViewData["listPhone"];
 }
 <style>
     .horizontal-list {
@@ -117,14 +119,50 @@
                         <div class="row mt-2">
                             <div class="col-md-12"><label class="labels">Image</label><input type="file" class="form-control" id="chooseImg" accept="Image/*" name="fThumb"><span class="text-danger"></span></div>
                             <div class="col-md-6"><label class="labels">Full Name</label><input type="text" class="form-control" placeholder="@Model.FullName" asp-for="FullName"><span asp-validation-for="FullName" class="text-danger"></span></div>
-                            <div class="col-md-6"><label class="labels">Email</label><input type="text" class="form-control" placeholder="@Model.Email" asp-for="Email"><span asp-validation-for="Email" class="text-danger"></span></div>
+                            <div class="col-md-6">
+                                <div id="inputEmailContainer">
+                                    <label class="labels">Email</label>
+                                    @if (listEmail.Count() == 0)
+                                    {
+                                        <input name="Email" type="email" class="form-control mt-2" placeholder="Input Email" />
+                                    }
+                                    else
+                                    {
+                                        @foreach (var item in listEmail)
+                                        {
+                                            <input name="Email" type="email" class="form-control mt-2" value="@item" />
+                                        }
+                                    }
+                                </div>
+                                <div class="mt-2">
+                                    <button id="addEmail" class="btn btn-primary">Add Email</button>
+                                </div>
+                            </div>
                         </div>
                         <div class="row mt-2">
                             <div class="col-md-6"><label class="labels">Company</label><input type="text" class="form-control" placeholder="@Model.Company" asp-for="Company"><span asp-validation-for="Company" class="text-danger"></span></div>
                             <div class="col-md-6"><label class="labels">JobTitle</label><input type="text" class="form-control" placeholder="@Model.JobTitle" asp-for="JobTitle"><span asp-validation-for="JobTitle" class="text-danger"></span></div>
                         </div>
                         <div class="row mt-2">
-                            <div class="col-md-6"><label class="labels">Phone</label><input type="text" class="form-control" placeholder="@Model.Phone" asp-for="Phone"><span asp-validation-for="Phone" class="text-danger"></span></div>
+                            <div class="col-md-6">
+                                <div id="inputPhoneContainer">
+                                    <label class="labels">Phone</label>
+                                    @if (listPhone.Count() == 0)
+                                    {
+                                        <input name="Phone" type="number" class="form-control mt-2" placeholder="Input Phone" />
+                                    }
+                                    else
+                                    {
+                                        @foreach (var item in listPhone)
+                                        {
+                                            <input name="Phone" type="number" class="form-control mt-2" value="@item" />
+                                        }
+                                    }
+                                </div>
+                                <div class="mt-2">
+                                    <button id="addPhone" class="btn btn-primary">Add Phone</button>
+                                </div>
+                            </div>
                             <div class="col-md-6"><label class="labels">DateOfBirth</label><input class="form-control" placeholder="@Model.DateOfBirth" asp-for="DateOfBirth"><span asp-validation-for="DateOfBirth" class="text-danger"></span></div>
                         </div>
                         <div class="row mt-3">

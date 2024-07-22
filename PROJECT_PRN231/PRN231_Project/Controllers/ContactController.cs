@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.OData.Query;
 using PRN231_Project.Dto;
 using PRN231_Project.Interfaces;
 using PRN231_Project.Models;
@@ -22,6 +23,7 @@ namespace PRN231_Project.Controllers
         // GET: api/<ValuesController>
         [HttpGet("{userId}")]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Contact>))]
+        [EnableQuery]
         public IActionResult GetContacts(int userId)
         {
             var contacts = _mapper.Map<List<ContactDto>>(_contactRepository.GetContactsByUserId(userId));
@@ -88,6 +90,7 @@ namespace PRN231_Project.Controllers
             contactMap.CreatedDate = DateTime.Now;
             contactMap.IsInTrash = false;
             contactMap.VisitedCount = 0;
+            contactMap.TrashDate = DateTime.Now;
             _contactRepository.CreateContact(contactMap);
             return Ok();
         }

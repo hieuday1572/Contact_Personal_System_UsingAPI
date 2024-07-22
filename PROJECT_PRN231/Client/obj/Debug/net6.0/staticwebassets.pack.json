@@ -5,12 +5,12 @@
       "PackagePath": "staticwebassets\\Client.bundle.scp.css"
     },
     {
-      "Id": "D:\\Contact_Personal_System_UsingAPI\\PROJECT_PRN231\\Client\\wwwroot\\Image\\1720753878107_6455b36839f74542ecde5d60_PE1_FurnitureMgtAppRequrements_Page02.xlsx",
-      "PackagePath": "staticwebassets\\Image\\1720753878107_6455b36839f74542ecde5d60_PE1_FurnitureMgtAppRequrements_Page02.xlsx"
-    },
-    {
       "Id": "D:\\Contact_Personal_System_UsingAPI\\PROJECT_PRN231\\Client\\wwwroot\\Image\\6d4617dd0c9e91a.png",
       "PackagePath": "staticwebassets\\Image\\6d4617dd0c9e91a.png"
+    },
+    {
+      "Id": "D:\\Contact_Personal_System_UsingAPI\\PROJECT_PRN231\\Client\\wwwroot\\Image\\Contact-la-gi.jpg",
+      "PackagePath": "staticwebassets\\Image\\Contact-la-gi.jpg"
     },
     {
       "Id": "D:\\Contact_Personal_System_UsingAPI\\PROJECT_PRN231\\Client\\wwwroot\\Image\\ContactImages\\make-you-eye-catching-pixel-art-backgroundspng.png",
@@ -25,8 +25,16 @@
       "PackagePath": "staticwebassets\\Image\\ContactImages\\z555848329620386ece5cfdf1e8256b2fdc3d88cbdd97fjpg.jpg"
     },
     {
+      "Id": "D:\\Contact_Personal_System_UsingAPI\\PROJECT_PRN231\\Client\\wwwroot\\Image\\UserImages\\82929-alone-sad-artist-artwork-digital-art-hd-4k-artstationjpg.jpg",
+      "PackagePath": "staticwebassets\\Image\\UserImages\\82929-alone-sad-artist-artwork-digital-art-hd-4k-artstationjpg.jpg"
+    },
+    {
       "Id": "D:\\Contact_Personal_System_UsingAPI\\PROJECT_PRN231\\Client\\wwwroot\\Image\\UserImages\\make-you-eye-catching-pixel-art-backgroundspng.png",
       "PackagePath": "staticwebassets\\Image\\UserImages\\make-you-eye-catching-pixel-art-backgroundspng.png"
+    },
+    {
+      "Id": "D:\\Contact_Personal_System_UsingAPI\\PROJECT_PRN231\\Client\\wwwroot\\Image\\UserImages\\sad-pixel-art-gifgif.gif",
+      "PackagePath": "staticwebassets\\Image\\UserImages\\sad-pixel-art-gifgif.gif"
     },
     {
       "Id": "D:\\Contact_Personal_System_UsingAPI\\PROJECT_PRN231\\Client\\wwwroot\\Image\\UserImages\\z555848329620386ece5cfdf1e8256b2fdc3d88cbdd97fjpg.jpg",

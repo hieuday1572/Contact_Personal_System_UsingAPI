@@ -2,7 +2,9 @@
 using Client.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using NuGet.Common;
 using System.Diagnostics;
+using System.Net.Http.Headers;
 
 namespace Client.Controllers
 {
@@ -46,6 +48,10 @@ namespace Client.Controllers
                 strData = JsonConvert.SerializeObject(labels);
                 HttpContext.Session.SetString("labels", strData);
             }
+            else
+            {
+                HttpContext.Session.SetString("labels", "[]");
+            }
             return View(list);
         }
 
@@ -70,15 +76,23 @@ namespace Client.Controllers
             }
             else
             {
+                //Test authentication sử dụng jwt bằng cách chạy debug để kiểm tra giá trị trả về trong 2 TH khi có token trong HTTP và khi không có.
+                _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", strData);
                 response = await _client.GetAsync($"https://localhost:7258/api/User/GetByName/{login.Username}");
                 strData = await response.Content.ReadAsStringAsync();
-
                 var user = JsonConvert.DeserializeObject<UserDto>(strData);
                 HttpContext.Session.SetInt32("userId", user.Id);
                 HttpContext.Session.SetString("username", user.Username);
+                HttpContext.Session.SetString("image", user.Image);
+
                 return RedirectToAction("Index");
             }
             return View();
+        }
+
+        public async Task<IActionResult> Logout()
+        {
+             return RedirectToAction("Login",new{ logout = true });
         }
 
         [HttpGet]
@@ -150,10 +164,21 @@ namespace Client.Controllers
                     ViewData["ErrorUpdate"] = strData;
                     return View(user);
                 }
+                HttpContext.Session.SetString("image", user.Image);
                 TempData["success"] = "Edited successfully !";
                 return RedirectToAction(nameof(Profile));
             }
             return View(user);
+        }
+
+        public async Task<JsonResult> GetSearchValue(string search)
+        {
+            int id = (int)HttpContext.Session.GetInt32("userId");
+            HttpResponseMessage response = await _client.GetAsync($"https://localhost:7258/api/Contact/GetContacts/{id}?$filter=contains(tolower(FullName),'{search.ToLower()}')");
+            string strData = await response.Content.ReadAsStringAsync();
+            var list = JsonConvert.DeserializeObject<List<ContactDto>>(strData);
+            list = list.Where(p => p.IsInTrash == false).ToList();
+            return new JsonResult(list);
         }
         public IActionResult Privacy()
         {
@@ -165,5 +190,11 @@ namespace Client.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+    }
+
+    public class ContactSearchModel
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }

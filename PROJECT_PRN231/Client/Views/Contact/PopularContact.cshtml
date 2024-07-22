@@ -1,4 +1,5 @@
-﻿@model List<ContactDto>
+﻿@using Newtonsoft.Json;
+@model List<ContactDto>
 @{
     int count = 0;
     if (Model != null)
@@ -44,8 +45,23 @@
                         {
                             <tr>
                                 <td>@item.FullName</td>
-                                <td>@item.Email</td>
-                                <td>@item.Phone</td>
+                                <td>@{
+                                        string[] listEmail = JsonConvert.DeserializeObject<string[]>(item.Email);
+                                        foreach(var item2 in listEmail)
+                                        {
+                                            <p>@item2</p>
+                                        }
+                                    }
+                                </td>
+                                <td>
+                                    @{
+                                        string[] listPhone = JsonConvert.DeserializeObject<string[]>(item.Phone);
+                                        foreach (var item2 in listPhone)
+                                        {
+                                            <p>@item2</p>
+                                        }
+                                    }
+                                </td>
                                 <td>@item.CreatedDate</td>
                                 <td>@item.VisitedCount</td>
                                 <td>

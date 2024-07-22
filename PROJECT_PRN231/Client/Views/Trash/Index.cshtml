@@ -1,19 +1,22 @@
-﻿@model List<ContactDto>
+﻿@using Newtonsoft.Json;
+@model List<ContactDto>
 @{
     var count = Model.Count;
 }
 <!-- Page Heading -->
-<h1 class="h3 mb-2 text-gray-800">Trash (@count)</h1>
+<h1 class="h3 mb-2 text-gray-800">Trash (@count) - Contact will be deleted after 1 minute</h1>
+<a class="btn btn-primary" asp-action="RestoreAllTrash" asp-controller="Trash">Restore All</a>
+<a class="btn btn-primary" asp-action="DeleteAllTrash" asp-controller="Trash">Delete All</a>
 @if (TempData["restore"] != null)
 {
     <div class="alert alert-success">
-        <strong>Success!</strong> @TempData["restore"]
+        @TempData["restore"]
     </div>
 }
 @if (TempData["delete"] != null)
 {
     <div class="alert alert-danger">
-        <strong>Success!</strong> @TempData["delete"]
+        @TempData["delete"]
     </div>
 }
 <!-- DataTales Example -->
@@ -27,7 +30,7 @@
                         <th>Email</th>
                         <th>Phone</th>
                         <th>CreatedDate</th>
-                        <th>ModifiedDate</th>
+                        <th>TrashDate</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -37,7 +40,7 @@
                         <th>Email</th>
                         <th>Phone</th>
                         <th>CreatedDate</th>
-                        <th>ModifiedDate</th>
+                        <th>TrashDate</th>
                         <th></th>
                     </tr>
                 </tfoot>
@@ -52,10 +55,26 @@
                         {
                             <tr>
                                 <td>@item.FullName</td>
-                                <td>@item.Email</td>
-                                <td>@item.Phone</td>
+                                <td>
+                                    @{
+                                        string[] listEmail = JsonConvert.DeserializeObject<string[]>(item.Email);
+                                        foreach (var item2 in listEmail)
+                                        {
+                                            <p>@item2</p>
+                                        }
+                                    }
+                                </td>
+                                <td>
+                                    @{
+                                        string[] listPhone = JsonConvert.DeserializeObject<string[]>(item.Phone);
+                                        foreach (var item2 in listPhone)
+                                        {
+                                            <p>@item2</p>
+                                        }
+                                    }
+                                </td>
                                 <td>@item.CreatedDate</td>
-                                <td>@item.ModifiedDate</td>
+                                <td>@item.TrashDate</td>
                                 <td>
                                     <a class="btn btn-warning" asp-controller="Contact" asp-action="Details" asp-route-id="@item.Id" asp-route-visit="true">Details</a> |
                                     <a class="btn btn-warning" asp-controller="Trash" asp-action="HandleRequest" asp-route-id="@item.Id" asp-route-restore="true">Restore</a> |

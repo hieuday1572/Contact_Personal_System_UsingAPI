@@ -28,6 +28,7 @@ namespace PRN231_Project.Models
         public string? InstaLink { get; set; }
         public string? Banking { get; set; }
         public string? Image { get; set; }
+        public DateTime? TrashDate { get; set; }
 
         public virtual User? User { get; set; }
         public virtual ICollection<ContactLabel> ContactLabels { get; set; }

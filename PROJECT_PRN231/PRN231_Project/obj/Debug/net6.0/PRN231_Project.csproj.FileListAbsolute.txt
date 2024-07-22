@@ -209,3 +209,11 @@ D:\Contact_Personal_System_UsingAPI\PROJECT_PRN231\PRN231_Project\obj\Debug\net6
 D:\Contact_Personal_System_UsingAPI\PROJECT_PRN231\PRN231_Project\obj\Debug\net6.0\PRN231_Project.pdb
 D:\Contact_Personal_System_UsingAPI\PROJECT_PRN231\PRN231_Project\obj\Debug\net6.0\PRN231_Project.genruntimeconfig.cache
 D:\Contact_Personal_System_UsingAPI\PROJECT_PRN231\PRN231_Project\obj\Debug\net6.0\ref\PRN231_Project.dll
+D:\Contact_Personal_System_UsingAPI\PROJECT_PRN231\PRN231_Project\bin\Debug\net6.0\Microsoft.AspNetCore.OData.dll
+D:\Contact_Personal_System_UsingAPI\PROJECT_PRN231\PRN231_Project\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Contact_Personal_System_UsingAPI\PROJECT_PRN231\PRN231_Project\bin\Debug\net6.0\Microsoft.OData.Core.dll
+D:\Contact_Personal_System_UsingAPI\PROJECT_PRN231\PRN231_Project\bin\Debug\net6.0\Microsoft.OData.Edm.dll
+D:\Contact_Personal_System_UsingAPI\PROJECT_PRN231\PRN231_Project\bin\Debug\net6.0\Microsoft.OData.ModelBuilder.dll
+D:\Contact_Personal_System_UsingAPI\PROJECT_PRN231\PRN231_Project\bin\Debug\net6.0\Microsoft.Spatial.dll
+D:\Contact_Personal_System_UsingAPI\PROJECT_PRN231\PRN231_Project\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Contact_Personal_System_UsingAPI\PROJECT_PRN231\PRN231_Project\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll

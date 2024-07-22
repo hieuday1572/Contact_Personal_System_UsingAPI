@@ -34,7 +34,7 @@
                         $('#listLabel').append('<li class="nav-item">' + response.labelHtml + '</li>');
                         $('#selectLabel').append(response.labelSelectHtml);
                     } else {
-                        alert('Error: ' + response.message);
+                        alert('Error: Cannot create label with same name');
                     }
                 },
                 error: function () {

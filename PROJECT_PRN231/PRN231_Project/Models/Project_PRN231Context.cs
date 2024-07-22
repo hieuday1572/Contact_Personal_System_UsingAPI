@@ -42,6 +42,8 @@ namespace PRN231_Project.Models
 
                 entity.Property(e => e.ModifiedDate).HasColumnType("datetime");
 
+                entity.Property(e => e.TrashDate).HasColumnType("datetime");
+
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Contacts)
                     .HasForeignKey(d => d.UserId)

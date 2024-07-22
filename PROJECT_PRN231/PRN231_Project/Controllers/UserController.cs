@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PRN231_Project.Dto;
 using PRN231_Project.Interfaces;
@@ -19,6 +20,7 @@ namespace PRN231_Project.Controllers
         }
 
         [HttpGet]
+        //[Authorize]
         public IActionResult GetUsers()
         {
             var users = _mapper.Map<List<UserDto>>(_userRepository.GetUsers());
@@ -32,6 +34,7 @@ namespace PRN231_Project.Controllers
         }
 
         [HttpGet("{name}")]
+        //[Authorize]
         public IActionResult GetByName(string name)
         {
             var user = _mapper.Map<UserDto>(_userRepository.GetByUsername(name));

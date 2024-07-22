@@ -3,22 +3,19 @@
   "WorkspaceRootPath": "D:\\Contact_Personal_System_UsingAPI\\PROJECT_PRN231\\PRN231_Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8DD8D227-B09A-4A63-9614-5F04CEC0FB7D}|..\\Client\\Client.csproj|d:\\contact_personal_system_usingapi\\project_prn231\\client\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{C5D6FB16-485C-47EC-BAD2-2CDA1CC90E95}|PRN231_Project.csproj|d:\\contact_personal_system_usingapi\\project_prn231\\prn231_project\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5D6FB16-485C-47EC-BAD2-2CDA1CC90E95}|PRN231_Project.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8DD8D227-B09A-4A63-9614-5F04CEC0FB7D}|..\\Client\\Client.csproj|d:\\contact_personal_system_usingapi\\project_prn231\\client\\views\\contact\\popularcontact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{C5D6FB16-485C-47EC-BAD2-2CDA1CC90E95}|PRN231_Project.csproj|d:\\contact_personal_system_usingapi\\project_prn231\\prn231_project\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5D6FB16-485C-47EC-BAD2-2CDA1CC90E95}|PRN231_Project.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8DD8D227-B09A-4A63-9614-5F04CEC0FB7D}|..\\Client\\Client.csproj|d:\\contact_personal_system_usingapi\\project_prn231\\client\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{C5D6FB16-485C-47EC-BAD2-2CDA1CC90E95}|PRN231_Project.csproj|d:\\contact_personal_system_usingapi\\project_prn231\\prn231_project\\models\\appsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5D6FB16-485C-47EC-BAD2-2CDA1CC90E95}|PRN231_Project.csproj|solutionrelative:models\\appsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8DD8D227-B09A-4A63-9614-5F04CEC0FB7D}|..\\Client\\Client.csproj|d:\\contact_personal_system_usingapi\\project_prn231\\client\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8DD8D227-B09A-4A63-9614-5F04CEC0FB7D}|..\\Client\\Client.csproj|d:\\contact_personal_system_usingapi\\project_prn231\\client\\controllers\\labelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8DD8D227-B09A-4A63-9614-5F04CEC0FB7D}|..\\Client\\Client.csproj|d:\\contact_personal_system_usingapi\\project_prn231\\client\\controllers\\contactcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -28,7 +25,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -68,54 +65,41 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\Contact_Personal_System_UsingAPI\\PROJECT_PRN231\\Client\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "..\\Client\\Views\\Home\\Index.cshtml",
-              "ToolTip": "D:\\Contact_Personal_System_UsingAPI\\PROJECT_PRN231\\Client\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "..\\Client\\Views\\Home\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAADAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-16T16:47:43.833Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "LabelController.cs",
-              "DocumentMoniker": "D:\\Contact_Personal_System_UsingAPI\\PROJECT_PRN231\\Client\\Controllers\\LabelController.cs",
-              "RelativeDocumentMoniker": "..\\Client\\Controllers\\LabelController.cs",
-              "ToolTip": "D:\\Contact_Personal_System_UsingAPI\\PROJECT_PRN231\\Client\\Controllers\\LabelController.cs",
-              "RelativeToolTip": "..\\Client\\Controllers\\LabelController.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAQwBQAAAA2AAAA",
+              "DocumentIndex": 0,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "D:\\Contact_Personal_System_UsingAPI\\PROJECT_PRN231\\PRN231_Project\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
+              "ToolTip": "D:\\Contact_Personal_System_UsingAPI\\PROJECT_PRN231\\PRN231_Project\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Controllers\\AuthController.cs",
+              "ViewState": "AQIAAB8AAAAAAAAAAAAQwDIAAABmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-16T16:46:01.532Z",
+              "WhenOpened": "2024-07-21T17:57:14.27Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "PopularContact.cshtml",
-              "DocumentMoniker": "D:\\Contact_Personal_System_UsingAPI\\PROJECT_PRN231\\Client\\Views\\Contact\\PopularContact.cshtml",
-              "RelativeDocumentMoniker": "..\\Client\\Views\\Contact\\PopularContact.cshtml",
-              "ToolTip": "D:\\Contact_Personal_System_UsingAPI\\PROJECT_PRN231\\Client\\Views\\Contact\\PopularContact.cshtml",
-              "RelativeToolTip": "..\\Client\\Views\\Contact\\PopularContact.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAYAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-16T16:44:03.522Z",
+              "Title": "UserController.cs",
+              "DocumentMoniker": "D:\\Contact_Personal_System_UsingAPI\\PROJECT_PRN231\\PRN231_Project\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UserController.cs",
+              "ToolTip": "D:\\Contact_Personal_System_UsingAPI\\PROJECT_PRN231\\PRN231_Project\\Controllers\\UserController.cs",
+              "RelativeToolTip": "Controllers\\UserController.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAQwBYAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-21T17:48:30.69Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "D:\\Contact_Personal_System_UsingAPI\\PROJECT_PRN231\\Client\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "..\\Client\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "D:\\Contact_Personal_System_UsingAPI\\PROJECT_PRN231\\Client\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "..\\Client\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAADwAAAAAAAAAAAAAAEsAAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-16T16:39:34.487Z",
+              "DocumentIndex": 2,
+              "Title": "AppSettings.cs",
+              "DocumentMoniker": "D:\\Contact_Personal_System_UsingAPI\\PROJECT_PRN231\\PRN231_Project\\Models\\AppSettings.cs",
+              "RelativeDocumentMoniker": "Models\\AppSettings.cs",
+              "ToolTip": "D:\\Contact_Personal_System_UsingAPI\\PROJECT_PRN231\\PRN231_Project\\Models\\AppSettings.cs",
+              "RelativeToolTip": "Models\\AppSettings.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-21T17:43:42.11Z",
               "EditorCaption": ""
             },
             {
@@ -126,22 +110,9 @@
               "RelativeDocumentMoniker": "..\\Client\\Controllers\\HomeController.cs",
               "ToolTip": "D:\\Contact_Personal_System_UsingAPI\\PROJECT_PRN231\\Client\\Controllers\\HomeController.cs",
               "RelativeToolTip": "..\\Client\\Controllers\\HomeController.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAAQwB0AAAAZAAAA",
+              "ViewState": "AQIAAGIAAAAAAAAAAIA9wIgAAABBAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-16T16:22:37.797Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ContactController.cs",
-              "DocumentMoniker": "D:\\Contact_Personal_System_UsingAPI\\PROJECT_PRN231\\Client\\Controllers\\ContactController.cs",
-              "RelativeDocumentMoniker": "..\\Client\\Controllers\\ContactController.cs",
-              "ToolTip": "D:\\Contact_Personal_System_UsingAPI\\PROJECT_PRN231\\Client\\Controllers\\ContactController.cs",
-              "RelativeToolTip": "..\\Client\\Controllers\\ContactController.cs",
-              "ViewState": "AQIAAJcAAAAAAAAAAADwv54AAAAxAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-14T08:23:24.821Z",
+              "WhenOpened": "2024-07-21T17:38:34.082Z",
               "EditorCaption": ""
             }
           ]
